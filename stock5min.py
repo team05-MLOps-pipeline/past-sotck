@@ -5,11 +5,6 @@ import datetime
 import pandas as pd
 import os
 
-kiwoom = Kiwoom()
-kiwoom.CommConnect(block=True)
-print("블록킹 로그인 완료")
-
-
 try:
     if not os.path.exists("data"):
         os.mkdir("data")
@@ -79,6 +74,11 @@ def tr_conti(code, set_d, tic):
     #return dfa
 
 if __name__ == "__main__":
+
+    # 키움 로그인
+    kiwoom = Kiwoom()
+    kiwoom.CommConnect(block=True)
+    print("블록킹 로그인 완료")
 
     # 전종목 종목코드
     kospi = kiwoom.GetCodeListByMarket('0')
